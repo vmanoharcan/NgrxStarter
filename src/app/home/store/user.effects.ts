@@ -8,19 +8,14 @@ import {UserService} from "./user.service";
 @Injectable()
 export class UserEffects {
   constructor(
-    private actions$: Actions,
-    private homeService: UserService
-  ) {}
+    private actions$: Actions) {}
 
-    loadUsers$ = createEffect(() =>
-        this.actions$.pipe(
-            ofType(UserActions.loadUsers),
-            concatMap(() => {
-                return this.homeService.getUsers().pipe(
-                    map(users => UserActions.loadUsersSuccess({ users })),
-                    catchError(() => of({ type: 'Error Loading Users' }))
-                );
-            }),
-        ),
-    );
+    // x$ = createEffect(() =>
+    //     this.actions$.pipe(
+    //         ofType(UserActions.loadUsers),
+    //         concatMap(() => {
+                
+    //         }),
+    //     ),
+    // );
 }

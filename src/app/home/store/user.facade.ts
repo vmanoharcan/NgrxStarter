@@ -11,14 +11,14 @@ export class UserFacade {
      * Combine pieces of state using createSelector,
      * and expose them as observables through the facade.
      */
-    allUsers$ = this.store.pipe(select(UserSelectors.selectAllUsers));
+    // x$ = this.store.pipe(select(UserSelectors.x));
 
     /**
      * Use the initialization action to perform one
      * or more tasks in your Effects.
      */
 
-    loadUsers() {
-        this.store.dispatch(UserActions.loadUsers());
-    }
+    // x() {
+    //     this.store.dispatch(UserActions.x);
+    // }
 }

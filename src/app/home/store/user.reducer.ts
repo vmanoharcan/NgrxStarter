@@ -14,9 +14,9 @@ export const initialState: UserState = userAdapter.getInitialState({});
 export const reducer = createReducer(
     initialState,
 
-    on(HomeActions.loadUsersSuccess, (state, {users}) =>
-        userAdapter.setAll(users, {...initialState}),
-    ),
+    // on(HomeActions., (state, {}) =>
+    //     //
+    // ),
 );
 
 export function userReducer(state: UserState | undefined, action: Action) {

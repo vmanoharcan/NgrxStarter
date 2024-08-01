@@ -1,0 +1,59 @@
+<table class="user-table">
+    <thead class="table-header">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>User Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-row" *ngFor="let row of users$ | async; let i=index; trackBy: trackByFn">
+        <td>
+            <span>{{ row.id }}</span>
+        </td>
+
+        <td>
+          <ng-container *ngIf="row.isEditingEnabled; else viewModeName">
+            <input 
+            [value]="row.name" 
+            (input)="updateRow(row,'name', $event)"  />
+          </ng-container>
+
+          <ng-template #viewModeName>
+            <span>{{ row.name }}</span>
+          </ng-template>
+        </td>
+
+        <td>
+          <ng-container *ngIf="row.isEditingEnabled; else viewModeEmail">
+            <input 
+            [value]="row.email" 
+            (input)="updateRow(row,'email', $event)" />
+          </ng-container>
+
+          <ng-template #viewModeEmail>
+            <span>{{ row.email }}</span>
+          </ng-template>
+        </td>
+
+        <td>
+          <ng-container *ngIf="row.isEditingEnabled; else viewModeUserName">
+            <input 
+            [value]="row.username" 
+            (input)="updateRow(row,'username', $event)" />
+          </ng-container>
+
+          <ng-template #viewModeUserName>
+            <span>{{ row.username }}</span>
+          </ng-template>
+        </td>
+       
+        <td>
+          <button class ="action-button" (click)="toggleEdit(i)">{{ row.isEditingEnabled ? 'View' : 'Edit' }}</button>
+          <button class ="action-button" (click)="saveRow(row.id)" *ngIf="row.isEditingEnabled" >Save</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

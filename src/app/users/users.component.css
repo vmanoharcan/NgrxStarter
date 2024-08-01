@@ -1,0 +1,20 @@
+.user-table {
+  border: 1px solid black;
+  margin: 20px 0;
+}
+
+.table-header th, 
+.table-row td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.action-button {
+  padding: 8px 12px; 
+  margin: 0 5px;
+  border-radius: 4px;
+}
+
+.action-button:hover {
+  background-color: gray;
+}
